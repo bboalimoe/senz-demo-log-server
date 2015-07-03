@@ -1,0 +1,23 @@
+{
+  "name": "user_status",
+  "plural": "user_statuses",
+  "base": "User",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "context": {
+      "type": "object",
+      "required": true
+    },
+    "event": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": []
+}
