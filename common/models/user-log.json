@@ -1,0 +1,39 @@
+{
+  "name": "UserLog",
+  "plural": "UserLogs",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "poiProbLv2": {
+      "type": "object",
+      "required": true
+    },
+    "poiProbLv1": {
+      "type": "object",
+      "required": true
+    },
+    "timestamp": {
+      "type": "number",
+      "required": true
+    },
+    "createdAt": {
+      "type": "date"
+    },
+    "updatedAt": {
+      "type": "date"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "raw_log": {
+      "type": "hasOne",
+      "model": "Log",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": []
+}

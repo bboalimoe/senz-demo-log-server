@@ -8,7 +8,8 @@
     ]
   },
   "User": {
-    "dataSource": "aliyun1-mongo"
+    "dataSource": "aliyun1-mongo",
+    "public": true
   },
   "AccessToken": {
     "dataSource": "aliyun1-mongo",
@@ -26,12 +27,24 @@
     "dataSource": "aliyun1-mongo",
     "public": false
   },
+  "sound_file_container": {
+    "dataSource": "local_file_system",
+    "public": true
+  },
+  "senz_app": {
+    "dataSource": "aliyun1-mongo",
+    "public": true
+  },
   "Log": {
     "dataSource": "aliyun1-mongo",
     "public": true
   },
-  "sound_file_container": {
-    "dataSource": "local_file_system",
+  "Installation": {
+    "dataSource": "aliyun1-mongo",
+    "public": true
+  },
+  "UserLog": {
+    "dataSource": "aliyun1-mongo",
     "public": true
   }
 }

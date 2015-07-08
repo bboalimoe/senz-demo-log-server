@@ -1,34 +1,49 @@
 {
   "name": "Log",
+  "plural": "Logs",
   "base": "PersistedModel",
-  "strict": false,
-  "idInjection": false,
+  "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
     "value": {
-      "type": "any",
-      "id": false,
-      "required": true,
-      "index": false,
-      "comments": "value of the log"
+      "type": "object"
     },
     "type": {
       "type": "string",
-      "required": true,
-      "comments": "type of the log"
+      "required": true
+    },
+    "source": {
+      "type": "string"
+    },
+    "locationRadius": {
+      "type": "number"
+    },
+    "timestamp": {
+      "type": "number"
+    },
+    "location": {
+      "type": "geopoint"
+    },
+    "file": {
+      "type": "string"
+    },
+    "createdAt": {
+      "type": "date"
+    },
+    "updateAt": {
+      "type": "date"
     }
   },
   "validations": [],
-  "relations": {},
-  "acls": [
-    {
-      "accessType": "*",
-      "principalType": "ROLE",
-      "principalId": "$everyone",
-      "permission": "ALLOW"
+  "relations": {
+    "installation": {
+      "type": "belongsTo",
+      "model": "Installation",
+      "foreignKey": ""
     }
-  ],
+  },
+  "acls": [],
   "methods": []
 }
