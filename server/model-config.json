@@ -8,34 +8,30 @@
     ]
   },
   "User": {
-    "dataSource": "db"
+    "dataSource": "aliyun1-mongo"
   },
   "AccessToken": {
-    "dataSource": "db",
+    "dataSource": "aliyun1-mongo",
     "public": false
   },
   "ACL": {
-    "dataSource": "db",
-    "public": false
+    "dataSource": "aliyun1-mongo",
+    "public": true
   },
   "RoleMapping": {
-    "dataSource": "db",
+    "dataSource": "aliyun1-mongo",
     "public": false
   },
   "Role": {
-    "dataSource": "db",
+    "dataSource": "aliyun1-mongo",
     "public": false
   },
-  "user_status": {
-    "dataSource": "db",
+  "Log": {
+    "dataSource": "aliyun1-mongo",
     "public": true
   },
-  "porns": {
-    "dataSource": "db",
-    "public": true
-  },
-  "coffee": {
-    "dataSource": "db",
+  "sound_file_container": {
+    "dataSource": "local_file_system",
     "public": true
   }
 }

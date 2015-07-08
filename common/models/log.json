@@ -1,0 +1,34 @@
+{
+  "name": "Log",
+  "base": "PersistedModel",
+  "strict": false,
+  "idInjection": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "value": {
+      "type": "any",
+      "id": false,
+      "required": true,
+      "index": false,
+      "comments": "value of the log"
+    },
+    "type": {
+      "type": "string",
+      "required": true,
+      "comments": "type of the log"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": []
+}
