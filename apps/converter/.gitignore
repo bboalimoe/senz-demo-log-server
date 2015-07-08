@@ -1,6 +1,5 @@
 .idea
 logs/*
-node_modules/*
 # Created by https://www.gitignore.io
 
 ### Intellij ###
@@ -34,3 +33,4 @@ node_modules/*
 ## File-based project format:
 *.ipr
 *.iws
+node_modules
