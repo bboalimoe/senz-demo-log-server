@@ -8,12 +8,20 @@
   },
   "properties": {
     "poiProbLv2": {
-      "type": "object",
-      "required": true
+      "type": "object"
     },
     "poiProbLv1": {
-      "type": "object",
+      "type": "object"
+    },
+    "type":{
+      "type":"string",
       "required": true
+    },
+    "soundProb":{
+      "type":"object"
+    },
+    "motionProb":{
+      "type": "object"
     },
     "timestamp": {
       "type": "number",
