@@ -10,5 +10,9 @@ module.exports = function backup_file(server) {
   //2. map the container dir to the url given by the leancloud in the designed db( or other places)
   //3. delete local files
 
+  //server.models.Log.find({where:{"source":"internal"}},function(err, models){
+  //  console.log(err)
+  //  console.log(models)
+  //})
 
 };

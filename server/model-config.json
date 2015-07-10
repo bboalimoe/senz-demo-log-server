@@ -17,7 +17,7 @@
   },
   "ACL": {
     "dataSource": "aliyun1-mongo",
-    "public": true
+    "public": false
   },
   "RoleMapping": {
     "dataSource": "aliyun1-mongo",
@@ -44,6 +44,22 @@
     "public": true
   },
   "UserLog": {
+    "dataSource": "aliyun1-mongo",
+    "public": true
+  },
+  "pruned_user_log": {
+    "dataSource": "aliyun1-mongo",
+    "public": true
+  },
+  "crf_status": {
+    "dataSource": "aliyun1-mongo",
+    "public": true
+  },
+  "hmm_status": {
+    "dataSource": "aliyun1-mongo",
+    "public": true
+  },
+  "user_status": {
     "dataSource": "aliyun1-mongo",
     "public": true
   }

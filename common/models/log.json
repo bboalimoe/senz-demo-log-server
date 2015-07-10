@@ -29,6 +29,9 @@
     "file": {
       "type": "string"
     },
+    "url": {
+      "type": "string"
+    },
     "createdAt": {
       "type": "date"
     },
@@ -41,6 +44,11 @@
     "installation": {
       "type": "belongsTo",
       "model": "Installation",
+      "foreignKey": ""
+    },
+    "user": {
+      "type": "belongsTo",
+      "model": "User",
       "foreignKey": ""
     }
   },

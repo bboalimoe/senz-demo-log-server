@@ -15,16 +15,24 @@ var logger = new log("rabbitmq pub");
 
 ////
 /////
-env = "demo";
+env = "_demo";
 
 
 publishMsg = function(msg, event) {
     logger.info("",'------ Sending ------');
     logger.info("",'* The chosen event is ' + event + '\n* The content of Msg is ' + msg + '\n* Sending Msg...\n');
-    if(event == "new_motion_arrival"){var routing_key = "motion";}
-    if(event == "new_sound_arrival"){var routing_key = "sound";}
-    if(event == "new_location_arrival"){var routing_key = "location";}
-    //not right
+    var routing_key = null
+
+  if(event === "new_log_arrival"){
+      routing_key = "log"
+    }else if(event === "new_crf_status_creation"){
+      routing_key = "crf_status"
+
+    }else if(event === "new_hmm_status_creation"){
+      routing_key = "hmm_status"
+
+  }
+
     var type = "senz.message." + routing_key + env;
     logger.info("","event is " + type);
     rabbit.publish(event + env, {

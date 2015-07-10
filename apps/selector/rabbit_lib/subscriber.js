@@ -15,7 +15,7 @@ var logger = new log("[rabbitMQ]");
 //    env = "_test"
 //}
 
-env = "_demo"
+env = "_demo";
 
 
 function handleMessage(callback,type){
@@ -37,10 +37,15 @@ function handleMessage(callback,type){
 
 exports.registerEvent = function(callback, consumer_name, raw_event){
     var event = raw_event + env;
+    var routing_key = ""
     var config = configuration.topology;
     config['queues'][config['queues'].length] = { name: consumer_name + env, subscribe: true};
     config['bindings'][config['bindings'].length] = { exchange: event , target: consumer_name + env  };//,keys: '' };
-    var routing_key = "log"
+    if(event === "new_crf_status_creation"){
+      routing_key = "crf_status"
+    }else{
+      routing_key = "hmm_status"
+    }
     rabbit.configure(config)
-        .then(handleMessage(callback,routing_key));
+        .then(handleMessage(callback, routing_key));
 };

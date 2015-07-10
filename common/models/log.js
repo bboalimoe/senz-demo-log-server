@@ -11,45 +11,19 @@ module.exports = function(Log) {
       console.log('Saved %s#%s', ctx.Model.modelName, ctx.instance.id);
       // log to rabbitmq  begin
       //
-      var objectId = ctx.instance.id;
+      var object = ctx.instance;
 
       var type = ctx.instance.type;
       logger.debug("Log to Rabbitmq", type);
-      if(type === "sensor"){
+      if(type in ["sensor","mic", "location"]){
 
-        logger.info("Log to Rabbitmq",'There is a new motion comming.');
-        msg = {
-          'objectId': objectId,
-          'timestamp': Date.now()
-        };
-        logger.info("Log to Rabbitmq",'The new motion object id: ' + request.object.id);
-        publisher.publishMessage(msg, 'new_motion_arrival');
+        logger.info("Log to Rabbitmq",'There is a new ' + type +  ' comming.');
+        msg = object;
+        logger.info("Log to Rabbitmq",'The new log object id: ' + object.id);
+        publisher.publishMessage(msg, 'new_log_arrival');
 
       }
 
-      else if(type === "mic"){
-        logger.info("Log to Rabbitmq",'There is a new sound comming.');
-        msg = {
-          'objectId': objectId,
-          'timestamp': Date.now()
-        };
-        logger.info("Log to Rabbitmq",'The new sound object id: ' + request.object.id);
-        publisher.publishMessage(msg, 'new_sound_arrival');
-      }
-
-      else if(type === "location"){
-
-        logger.info("Log to Rabbitmq",'There is a new location comming.');
-        msg = {
-          'objectId': objectId,
-          'timestamp': Date.now()
-        };
-        logger.info("Log to Rabbitmq",'The new location object id: ' + request.object.id);
-        publisher.publishMessage(msg, 'new_location_arrival');
-      }
-      else{
-        logger.error("Log to Rabbitmq","just saved object type doesn't match any value [sensor],[mic],[location]")
-      }
 
 
       //

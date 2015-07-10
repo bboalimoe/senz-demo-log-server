@@ -16,7 +16,10 @@
     "loopback-connector-mongodb": "",
     "loopback-component-storage": "",
     "wascally": "",
-    "tracer": ""
+    "tracer": "",
+    "request": "",
+    "string": "",
+    "avoscloud-sdk": ""
   },
   "optionalDependencies": {
     "loopback-explorer": "^1.1.0"

@@ -5,7 +5,7 @@ var util = require("util");
 var path = require("path");
 var json = require("jsonfile");
 
-var location = require("./locations/init");
+var location = require("./cores/init");
 var sound = require("./sounds/init");
 var motion = require("./motions/init");
 var log = require("./utils/logger").log;
