@@ -1,17 +1,19 @@
 {
-  "aliyun1-mongo": {
-    "host": "120.27.30.239",
-    "port": 27017,
-    "database": "test",
-    "password": "xiaosenz",
-    "name": "aliyun1-mongo",
-    "user": "senz",
-    "connector": "mongodb"
-  },
+
   "local_file_system": {
     "name": "local_file_system",
     "connector": "loopback-component-storage",
     "provider": "filesystem",
     "root": "./storage"
+  },
+  "qingcloud1-mongodb": {
+    "host": "119.254.111.40",
+    "port": 27017,
+    "url": "",
+    "database": "senz",
+    "password": "xiaosenz",
+    "name": "qingcloud1-mongodb",
+    "user": "senz",
+    "connector": "mongodb"
   }
 }

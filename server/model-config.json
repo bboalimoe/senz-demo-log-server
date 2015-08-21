@@ -8,23 +8,23 @@
     ]
   },
   "User": {
-    "dataSource": "aliyun1-mongo",
+    "dataSource": "qingcloud1-mongodb",
     "public": true
   },
   "AccessToken": {
-    "dataSource": "aliyun1-mongo",
+    "dataSource": "qingcloud1-mongodb",
     "public": false
   },
   "ACL": {
-    "dataSource": "aliyun1-mongo",
+    "dataSource": "qingcloud1-mongodb",
     "public": false
   },
   "RoleMapping": {
-    "dataSource": "aliyun1-mongo",
+    "dataSource": "qingcloud1-mongodb",
     "public": false
   },
   "Role": {
-    "dataSource": "aliyun1-mongo",
+    "dataSource": "qingcloud1-mongodb",
     "public": false
   },
   "sound_file_container": {
@@ -32,35 +32,35 @@
     "public": true
   },
   "senz_app": {
-    "dataSource": "aliyun1-mongo",
+    "dataSource": "qingcloud1-mongodb",
     "public": true
   },
   "Log": {
-    "dataSource": "aliyun1-mongo",
+    "dataSource": "qingcloud1-mongodb",
     "public": true
   },
   "Installation": {
-    "dataSource": "aliyun1-mongo",
+    "dataSource": "qingcloud1-mongodb",
     "public": true
   },
   "UserLog": {
-    "dataSource": "aliyun1-mongo",
+    "dataSource": "qingcloud1-mongodb",
     "public": true
   },
   "pruned_user_log": {
-    "dataSource": "aliyun1-mongo",
+    "dataSource": "qingcloud1-mongodb",
     "public": true
   },
   "crf_status": {
-    "dataSource": "aliyun1-mongo",
+    "dataSource": "qingcloud1-mongodb",
     "public": true
   },
   "hmm_status": {
-    "dataSource": "aliyun1-mongo",
+    "dataSource": "qingcloud1-mongodb",
     "public": true
   },
   "user_status": {
-    "dataSource": "aliyun1-mongo",
+    "dataSource": "qingcloud1-mongodb",
     "public": true
   }
 }

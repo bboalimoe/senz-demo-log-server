@@ -22,7 +22,7 @@
     "updatedAt": {
       "type": "date"
     },
-    "lastUpdatedAt":{
+    "lastUpdatedAt": {
       "type": "number"
     }
   },

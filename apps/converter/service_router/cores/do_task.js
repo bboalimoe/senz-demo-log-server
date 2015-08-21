@@ -26,13 +26,14 @@ var get_request_body = function(obj){
         var new_obj = {};
         new_obj["timestamp"] = obj.timestamp;
         new_obj["objectId"] = obj.id;
-        new_obj[""]
         new_obj["location"] = new_loc;
         new_obj["radius"] = obj.locationRadius;
 
         locations.push(new_obj);
 
         body = {"user_trace": locations};
+        body.userId = obj.userId;
+        body.dev_key = "senz";
         return body
 
     }else if(obj.type === "mic"){
@@ -129,7 +130,7 @@ function failed(request_id) {
 var start = function(log){
 
     logger.info(log.id, "Task start ...");
-    if (typeof log != typeof "object" ) {
+    if (typeof log != typeof {} ) {
         logger.error(log.id, "Type of requestId is illegal");
         return;
     }

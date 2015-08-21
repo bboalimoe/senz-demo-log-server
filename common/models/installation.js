@@ -5,6 +5,31 @@ var AV = require("avoscloud-sdk").AV;
 module.exports = function(Installation) {
 
 
+  Installation.observe("before save", function(ctx, next){
+
+    ////
+    //// before save hook can create the updatedAt and createdAt
+    ////
+    console.log('Saved %s', ctx.Model.modelName);
+
+    ctx.instance.updatedAt = Date.now();
+    if(ctx.isNewInstance) {
+
+      ctx.instance.createdAt = Date.now();
+
+    }
+    else{
+      console.log("updated %s",ctx.Model.pluralModelName)
+
+    }
+    next();
+  })
+
+
+
+
+
+
   Installation.getApp(function(err, app){
     app.models.Log.find({where:{"source":"internal"}},function(err, models){
 

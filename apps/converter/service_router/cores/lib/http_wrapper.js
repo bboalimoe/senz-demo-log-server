@@ -46,29 +46,23 @@ var user_log_post = function (url, params) {
 
 
 
-var load_data = function(body, type) {
+var load_data = function(body, type, id) {
 
   var params = {};
+  var uuid = id;
 
   if(type === "location") {
-      var obj = body.results[0];
-      var uuid = obj.objectId;
+      var poi_prob_per_object = body.results.poi_probability[0];
       //console.log("response results" + typeof json_body);
-      var poi_probability = obj.poi_probability;
-      if (typeof poi_probability !== typeof {} || !_.has(obj, "poi_probability")) {
-        logger.error(uuid, "Error is " + "key error and the error object is " + JSON.stringify(obj));
-        return;
-      }
-      var poiProbLv1, poiProbLv2;
+
       var prob_lv1_object = {};
       var prob_lv2_object = {};
-      var level_one = Object.keys(poi_probability);
+      var level_one = Object.keys(poi_prob_per_object);
 
       level_one.forEach(function (type1) {
-        var sum = null;
-        var type1_obj = poi_probability[type1];
-        prob_lv1_object[type1] = type1_obj["sum_probability"];
-        prob_lv2_object = _.extend(prob_lv2_object, type1_obj);
+        console.log(JSON.stringify(type1));
+        prob_lv1_object[type1] = poi_prob_per_object[type1].level1_prob;
+        prob_lv2_object = _.extend(prob_lv2_object, poi_prob_per_object[type1].level2_prob);
       });
       delete prob_lv2_object["sum_probability"]
       params["poiProbLv1"] = prob_lv1_object;
@@ -134,7 +128,7 @@ var service_post = function (url, params, object) {
             else{
                 var body_str = JSON.stringify(body);
                 logger.debug(uuid, "Body is  " + body_str);
-                var processed_data = load_data(body, object.type);
+                var processed_data = load_data(body, object.type, object.id);
 
                 if(!processed_data){
                     promise.reject("ERROR!,please check the log")

@@ -20,7 +20,7 @@ env = "_demo";
 
 publishMsg = function(msg, event) {
     logger.info("",'------ Sending ------');
-    logger.info("",'* The chosen event is ' + event + '\n* The content of Msg is ' + msg + '\n* Sending Msg...\n');
+    logger.info("",'* The chosen event is ' + event + '\n* The content of Msg is ' + JSON.stringify(msg) + '\n* Sending Msg...\n');
     var routing_key = null
 
   if(event === "new_log_arrival"){
@@ -43,6 +43,8 @@ publishMsg = function(msg, event) {
 };
 
 exports.publishMessage = function(msg, event){
+
+    console.log("fuck");
     logger.info("","topo is " + JSON.stringify(configuration.topology) );
     rabbit.configure(configuration.topology)
         .then(publishMsg(msg, event));

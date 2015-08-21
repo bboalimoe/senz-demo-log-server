@@ -39,16 +39,13 @@ exports.init = function(){
 
 
     //todo scheduleCleanFromLeanCloud();
-    scheduleCleanFromMemoryCache();
 
-
-
-    scheduleCleanFromMemoryCache();
 
 };
 
 var logCallback = function(log_object)
 {
+    console.log("fuck your mother");
     if(m_cache.get(log_object.id)){
         return ;
     }

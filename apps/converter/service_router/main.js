@@ -2,15 +2,13 @@
 var express = require("express");
 var app = express();
 var middle = require("./middlewares");
-var location = require("./cores/init");
-var sound = require("./sounds/init");
-var motion = require("./motions/init");
+var log_data = require("./cores/init");
+
 var log = require("./utils/logger").log;
 var logger = new log("[main]");
 var request = require("request");
 var bodyParser = require("body-parser");
 var bugsnag = require("bugsnag");
-var url_generator = require("./utils/url_generator");
 
 //bugsnag initialization
 logger.debug(JSON.stringify(process.env));
@@ -27,9 +25,9 @@ logger.info("","bugsnag initialized");
 
 logger.info("","url generated");
 
-location.init();
-motion.init();
-sound.init();
+
+log_data.init();
+
 
 //
 
@@ -81,31 +79,21 @@ app.get("/train-set/",function(req,res){
 
 });
 
-app.get("/real-data/",function(req,res){
+app.get("/real-data/",function(req,res) {
 
-    middle.toPredictionData();
-    res.send({"status":"data set is not training set"});
-
-
-app.get("/services/motion/start/",function(req,res){
-
-    motion.init();
-    res.send({"status":"motion service started"});
-});
-
-app.get("/services/location/start/",function(req,res){
-
-    location.init();
-    res.send({"status":"location service started"})
-});
-
-app.get("/services/sound/start/",function(req,res){
-
-    sound.init();
-    res.send({"status":"sound service started"});
-});
+  middle.toPredictionData();
+  res.send({"status": "data set is not training set"});
 
 });
+
+app.get("/services/log/start/",function(req,res){
+
+    log_data.init();
+    res.send({"status":"log service started"})
+});
+
+
+
 
 
 app.use(bugsnag.errorHandler); //make sure to add this after all other middleware, but before any "error" middleware:
@@ -114,7 +102,7 @@ app.use(bugsnag.errorHandler); //make sure to add this after all other middlewar
 logger.info("","Service interchange api opened,");
 
 //todo the listen port must be 3000
-var server = app.listen(3001, function () {
+var server = app.listen(3002, function () {
 
     var host = server.address().address
     var port = server.address().port

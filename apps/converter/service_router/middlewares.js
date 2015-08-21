@@ -5,9 +5,8 @@ var util = require("util");
 var path = require("path");
 var json = require("jsonfile");
 
-var location = require("./cores/init");
-var sound = require("./sounds/init");
-var motion = require("./motions/init");
+var log_data = require("./cores/init");
+
 var log = require("./utils/logger").log;
 var main_log = new log("[main]");
 var cur_dir_name = path.dirname(__filename);
@@ -85,12 +84,6 @@ exports.toTrainingData = function(){
 };
 
 
-exports.start_location_service = function(){
-    location.init();
-}
-exports.start_sound_service = function(){
-    sound.init();
-}
-exports.start_motion_service = function(){
-    motion.init();
+exports.start_log_data_service = function(){
+    log_data.init();
 }
